@@ -23,15 +23,14 @@ const questions = [
   {
     type: "input",
     name: "description",
-    message:
-      "Please enter a explanation how to install the software, or commands for the program ",
+    message: "Please enter a explanation how to install the software, or commands for the program ",
   },
 
   {
     type: "checkbox",
     name: "license",
     message: "Please select a license applicable to this project ",
-    choices: ["Mit", "Apache 2.0", "Boost 1.0", "MPL2.0", "BSD2", "BSD3", "none"] 
+    choices: ["Mit", "Apache 2.0", "Boost 1.0", "MPL2.0", "BSD2", "BSD3", "none"],
   },
 
   {
@@ -75,8 +74,9 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
+    console.log("Creating a Professional README.md Fie...");
     const readme = generateMarkdown(answers);
-    writeToFile("./dist/README.md", generateMarkdown(answers))
+    writeToFile("./", generateMarkdown(answers))
     console.log(readme);
     // call writeToFile
   });
