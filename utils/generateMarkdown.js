@@ -78,14 +78,6 @@ function generateMarkdown(data) {
    ${data.Github}
    ### Email
    ${data.email}
-
-
-
-
-
-   
- 
-
 `;
 }
 export default generateMarkdown; 
