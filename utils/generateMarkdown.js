@@ -72,6 +72,8 @@ function generateMarkdown(data) {
    ${data.license}
 
    ## Question
+   If you have any questions with us project, I am happy to answer them at ${data.email}.
+
    ### Github
    ${data.Github}
    ### Email
