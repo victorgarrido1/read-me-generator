@@ -2,10 +2,7 @@
 import inquirer from 'inquirer'; 
 import generateMarkdown from "./utils/generateMarkdown.js"
 // import fs
-// TODO: Create an array of questions for user input
-
-
-
+import fs from "fs"
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -24,7 +21,7 @@ const questions = [
     {
         type:"input",
         name: "installation",
-        message:"Please enter a explanation how to install the software, or commands for the program "
+        message:"Please enter a explanation how to install the software, or commands for the program"
     },
     {
         type:"input",
@@ -43,9 +40,9 @@ const questions = [
     },
     {
         type:"list",
-        name: "question",
+        name: "license",
         message:"Please choose a license.",
-        choices: ['MIT', 'MS-PL','LGPL','NCSA']
+        choices: ['MIT', 'Apache','IPL','ISC']
     },
     {
         type:"input",
@@ -61,9 +58,10 @@ const questions = [
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    // using fs, generate readme using fileName parameter and data   
-}
+function writeToFile(fileName, data)  {
+    fs.readFile("read-me.txt", process.argv[2], (err) =>
+    err ?console.error(err) : console.log("Success!"))
+};
 
 // TODO: Create a function to initialize app
 function init() {
@@ -73,6 +71,7 @@ function init() {
        const readme = generateMarkdown(answers) 
     console.log(readme)
     // call writeToFile
+    fs.writeFileSync("README.md", readme) 
     }) 
 
 }
